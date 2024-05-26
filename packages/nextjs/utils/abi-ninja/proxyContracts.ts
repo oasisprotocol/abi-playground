@@ -18,7 +18,7 @@ const readAddress = (value: string | undefined) => {
   }
   const address = value.length === 66 ? "0x" + value.slice(-40) : value;
   const zeroAddress = "0x" + "0".repeat(40);
-  if (address === zeroAddress) {
+  if (address === zeroAddress || address === "0x0") {
     throw new Error("Empty address");
   }
   return address;
