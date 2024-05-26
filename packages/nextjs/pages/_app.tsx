@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import type { AppProps } from "next/app";
 import { RainbowKitProvider, darkTheme, lightTheme } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/styles.css";
-import PlausibleProvider from "next-plausible";
 import { ThemeProvider, useTheme } from "next-themes";
 import NextNProgress from "nextjs-progressbar";
 import { Toaster } from "react-hot-toast";
@@ -49,14 +48,12 @@ const ScaffoldEthApp = ({ Component, pageProps }: AppProps) => {
 
 const ScaffoldEthAppWithProviders = (props: AppProps) => {
   return (
-    <PlausibleProvider domain="abi.ninja">
-      <ThemeProvider>
-        <WagmiConfig config={wagmiConfig}>
-          <NextNProgress />
-          <ScaffoldEthApp {...props} />
-        </WagmiConfig>
-      </ThemeProvider>
-    </PlausibleProvider>
+    <ThemeProvider>
+      <WagmiConfig config={wagmiConfig}>
+        <NextNProgress />
+        <ScaffoldEthApp {...props} />
+      </WagmiConfig>
+    </ThemeProvider>
   );
 };
 

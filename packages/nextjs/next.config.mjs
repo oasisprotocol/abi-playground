@@ -1,6 +1,5 @@
 // @ts-check
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-import { withPlausibleProxy } from "next-plausible";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -17,4 +16,4 @@ const nextConfig = {
   },
 };
 
-export default withPlausibleProxy()(nextConfig);
+export default nextConfig;
