@@ -1,3 +1,4 @@
+import * as viemNextVersionChains from "../../viemNextVersionChains";
 import * as chains from "viem/chains";
 import scaffoldConfig from "~~/scaffold.config";
 
@@ -24,6 +25,22 @@ const BASE_ETHERSCAN_API_KEY = process.env.NEXT_PUBLIC_BASE_ETHERSCAN_API_KEY ||
 const SCROLL_ETHERSCAN_API_KEY = process.env.NEXT_PUBLIC_SCROLL_ETHERSCAN_API_KEY || "";
 
 export const NETWORKS_EXTRA_DATA: Record<string, ChainAttributes> = {
+  [viemNextVersionChains.sapphire.id]: {
+    color: "#fbebd4",
+    icon: "/oasis.svg",
+  },
+  [viemNextVersionChains.sapphireTestnet.id]: {
+    color: "#fbebd4",
+    icon: "/oasis.svg",
+  },
+  [viemNextVersionChains.emerald.id]: {
+    color: "#fbebd4",
+    icon: "/oasis.svg",
+  },
+  [viemNextVersionChains.emeraldTestnet.id]: {
+    color: "#fbebd4",
+    icon: "/oasis.svg",
+  },
   [chains.hardhat.id]: {
     color: "#b8af0c",
     icon: "/hardhat.png",

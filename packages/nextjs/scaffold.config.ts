@@ -1,3 +1,4 @@
+import * as viemNextVersionChains from "./viemNextVersionChains";
 import * as chains from "viem/chains";
 
 export type ScaffoldConfig = {
@@ -12,6 +13,10 @@ export type ScaffoldConfig = {
 const scaffoldConfig = {
   // After adding a new chain here we should also add it to the networks.ts file
   targetNetworks: [
+    viemNextVersionChains.sapphire,
+    viemNextVersionChains.sapphireTestnet,
+    viemNextVersionChains.emerald,
+    viemNextVersionChains.emeraldTestnet,
     chains.mainnet,
     chains.sepolia,
     chains.optimism,
