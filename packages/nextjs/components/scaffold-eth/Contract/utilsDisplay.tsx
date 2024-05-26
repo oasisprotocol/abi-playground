@@ -27,10 +27,10 @@ export const displayTxResult = (
       if (asNumber <= Number.MAX_SAFE_INTEGER && asNumber >= Number.MIN_SAFE_INTEGER) {
         return asNumber;
       } else {
-        return "Ξ" + formatEther(displayContent);
+        return "" + formatEther(displayContent);
       }
     } catch (e) {
-      return "Ξ" + formatEther(displayContent);
+      return "" + formatEther(displayContent);
     }
   }
 
