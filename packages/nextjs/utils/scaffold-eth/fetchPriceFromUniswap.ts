@@ -17,6 +17,8 @@ const ABI = parseAbi([
 ]);
 
 export const fetchPriceFromUniswap = async (targetNetwork: ChainWithAttributes): Promise<number> => {
+  console.log("blocked fetchPriceFromUniswap", targetNetwork.nativeCurrency.symbol);
+  return 0;
   if (
     targetNetwork.nativeCurrency.symbol !== "ETH" &&
     targetNetwork.nativeCurrency.symbol !== "SEP" &&
