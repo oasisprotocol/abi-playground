@@ -1,5 +1,16 @@
+import { StaticImageData } from 'next/image';
 import * as viemNextVersionChains from "../../viemNextVersionChains";
 import * as chains from "viem/chains";
+import arbitrumIcon from "~~/public/arbitrum.svg";
+import baseIcon from "~~/public/base.svg";
+import gnosisIcon from "~~/public/gnosis.svg";
+import hardhatIcon from "~~/public/hardhat.png";
+import mainnetIcon from "~~/public/mainnet.svg";
+import oasisIcon from "~~/public/oasis.svg";
+import optimismIcon from "~~/public/optimism.svg";
+import polygonIcon from "~~/public/polygon.svg";
+import scrollIcon from "~~/public/scroll.svg";
+import zksyncIcon from "~~/public/zksync.svg";
 import scaffoldConfig from "~~/scaffold.config";
 
 type ChainAttributes = {
@@ -10,7 +21,7 @@ type ChainAttributes = {
   nativeCurrencyTokenAddress?: string;
   etherscanEndpoint?: string;
   etherscanApiKey?: string;
-  icon?: string;
+  icon?: StaticImageData;
   groupSelector?: string;
 };
 
@@ -27,102 +38,102 @@ const SCROLL_ETHERSCAN_API_KEY = process.env.NEXT_PUBLIC_SCROLL_ETHERSCAN_API_KE
 export const NETWORKS_EXTRA_DATA: Record<string, ChainAttributes> = {
   [viemNextVersionChains.sapphire.id]: {
     color: "#fbebd4",
-    icon: "/oasis.svg",
+    icon: oasisIcon,
   },
   [viemNextVersionChains.sapphireTestnet.id]: {
     color: "#fbebd4",
-    icon: "/oasis.svg",
+    icon: oasisIcon,
   },
   [viemNextVersionChains.emerald.id]: {
     color: "#fbebd4",
-    icon: "/oasis.svg",
+    icon: oasisIcon,
   },
   [viemNextVersionChains.emeraldTestnet.id]: {
     color: "#fbebd4",
-    icon: "/oasis.svg",
+    icon: oasisIcon,
   },
   [chains.hardhat.id]: {
     color: "#b8af0c",
-    icon: "/hardhat.png",
+    icon: hardhatIcon,
   },
   [chains.mainnet.id]: {
     color: "#ff8b9e",
     etherscanEndpoint: "https://api.etherscan.io",
     etherscanApiKey: MAINNET_ETHERSCAN_API_KEY,
-    icon: "/mainnet.svg",
+    icon: mainnetIcon,
   },
   [chains.sepolia.id]: {
     color: ["#5f4bb6", "#87ff65"],
     etherscanEndpoint: "https://api-sepolia.etherscan.io",
     etherscanApiKey: MAINNET_ETHERSCAN_API_KEY,
-    icon: "/mainnet.svg",
+    icon: mainnetIcon,
   },
   [chains.gnosis.id]: {
     color: "#48a9a6",
     etherscanEndpoint: "https://api.gnosisscan.io",
     etherscanApiKey: MAINNET_ETHERSCAN_API_KEY,
-    icon: "/gnosis.svg",
+    icon: gnosisIcon,
   },
   [chains.polygon.id]: {
     color: "#2bbdf7",
     nativeCurrencyTokenAddress: "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
     etherscanEndpoint: "https://api.polygonscan.com",
     etherscanApiKey: POLYGON_ETHERSCAN_API_KEY,
-    icon: "/polygon.svg",
+    icon: polygonIcon,
   },
   [chains.polygonMumbai.id]: {
     color: "#92D9FA",
     nativeCurrencyTokenAddress: "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
     etherscanEndpoint: "https://api-testnet.polygonscan.com",
     etherscanApiKey: POLYGON_ETHERSCAN_API_KEY,
-    icon: "/polygon.svg",
+    icon: polygonIcon,
   },
   [chains.optimism.id]: {
     color: "#f01a37",
     etherscanEndpoint: "https://api-optimistic.etherscan.io",
     etherscanApiKey: OPTIMISM_ETHERSCAN_API_KEY,
-    icon: "/optimism.svg",
+    icon: optimismIcon,
   },
   [chains.arbitrum.id]: {
     color: "#28a0f0",
     etherscanEndpoint: "https://api.arbiscan.io",
     etherscanApiKey: ARBITRUM_ETHERSCAN_API_KEY,
-    icon: "/arbitrum.svg",
+    icon: arbitrumIcon,
   },
   [chains.zkSync.id]: {
     color: "#5f4bb6",
     etherscanEndpoint: "https://block-explorer-api.mainnet.zksync.io",
     etherscanApiKey: ZKSYNC_ETHERSCAN_API_KEY,
-    icon: "/zkSync.svg",
+    icon: zksyncIcon,
   },
   [chains.zkSyncTestnet.id]: {
     color: "#5f4bb6",
     etherscanEndpoint: "https://block-explorer-api.testnets.zksync.dev",
     etherscanApiKey: ZKSYNC_ETHERSCAN_API_KEY,
-    icon: "/zkSync.svg",
+    icon: zksyncIcon,
   },
   [chains.base.id]: {
     color: "#1450EE",
     etherscanEndpoint: "https://api-sepolia.basescan.org",
     etherscanApiKey: BASE_ETHERSCAN_API_KEY,
-    icon: "/base.svg",
+    icon: baseIcon,
   },
   [chains.baseSepolia.id]: {
     color: "#1450EE",
     etherscanApiKey: BASE_ETHERSCAN_API_KEY,
-    icon: "/base.svg",
+    icon: baseIcon,
   },
   [chains.scroll.id]: {
     color: "#fbebd4",
     etherscanEndpoint: "https://api.scrollscan.com",
     etherscanApiKey: SCROLL_ETHERSCAN_API_KEY,
-    icon: "/scroll.svg",
+    icon: scrollIcon,
   },
   [chains.scrollSepolia.id]: {
     color: "#fbebd4",
     etherscanEndpoint: "https://api-sepolia.scrollscan.com",
     etherscanApiKey: SCROLL_ETHERSCAN_API_KEY,
-    icon: "/scroll.svg",
+    icon: scrollIcon,
   },
 };
 

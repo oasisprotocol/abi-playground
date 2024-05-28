@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { useTheme } from "next-themes";
 import Select, { OptionProps, components } from "react-select";
+import mainnetIcon from "~~/public/mainnet.svg";
 import { getTargetNetworks } from "~~/utils/scaffold-eth";
 
 type Options = {
   value: number;
   label: string;
-  icon?: string;
+  icon?: StaticImageData;
 };
 type GroupedOptions = Record<
   "mainnet" | "testnet" | "localhost",
@@ -51,7 +52,7 @@ const { Option } = components;
 const IconOption = (props: OptionProps<Options>) => (
   <Option {...props}>
     <div className="flex items-center">
-      <Image src={props.data.icon || "/mainnet.svg"} alt={props.data.label} width={24} height={24} className="mr-2" />
+      <Image src={props.data.icon || mainnetIcon} alt={props.data.label} width={24} height={24} className="mr-2" />
       {props.data.label}
     </div>
   </Option>
