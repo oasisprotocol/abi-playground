@@ -201,25 +201,25 @@ const Home: NextPage = () => {
                       <div className="mb-2 text-center text-base">Quick access</div>
                       <div className="flex justify-center w-full rounded-xl">
                         <Link
-                          href="/0x6B175474E89094C44Da98b954EedeAC495271d0F/1"
+                          href="/0x8Bc2B030b299964eEfb5e1e0b36991352E56D2D3/23294"
                           passHref
                           className="link w-1/3 text-center text-base-content no-underline"
                         >
-                          DAI
+                          Wrapped ROSE
                         </Link>
                         <Link
-                          href="/0xde30da39c46104798bb5aa3fe8b9e0e1f348163f/1"
+                          href="/0xcA11bde05977b3631167028862bE2a173976CA11/23294"
                           passHref
                           className="link w-1/3 text-center text-base-content no-underline"
                         >
-                          Gitcoin
+                          Multicall V3
                         </Link>
                         <Link
-                          href="/0x00000000006c3852cbef3e08e8df289169ede581/1"
+                          href="/0x39d22B78A7651A76Ffbde2aaAB5FD92666Aca520/23294"
                           passHref
                           className="link w-1/3 text-center text-base-content no-underline"
                         >
-                          Opensea
+                          Ocean Token
                         </Link>
                       </div>
                     </div>
