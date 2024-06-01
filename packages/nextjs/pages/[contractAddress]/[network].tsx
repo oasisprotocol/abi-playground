@@ -22,15 +22,20 @@ interface ParsedQueryContractDetailsPage extends ParsedUrlQuery {
 type ContractData = {
   abi: Abi;
   address: string;
+  nameInContractSourceCode: undefined | string;
 };
 
 const ContractDetailPage = () => {
   const router = useRouter();
   const { contractAddress, network } = router.query as ParsedQueryContractDetailsPage;
-  const [contractData, setContractData] = useState<ContractData>({ abi: [], address: contractAddress });
+  const [contractData, setContractData] = useState<ContractData>({
+    abi: [],
+    address: contractAddress,
+    nameInContractSourceCode: undefined,
+  });
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const contractName = contractData.address;
+  const contractName = contractData.address; // wrong var name
   const {
     contractAbi: storedAbi,
     setMainChainId,
@@ -74,7 +79,7 @@ const ContractDetailPage = () => {
         setIsLoading(true);
 
         if (storedAbi && storedAbi.length > 0) {
-          setContractData({ abi: storedAbi, address: contractAddress });
+          setContractData({ abi: storedAbi, address: contractAddress, nameInContractSourceCode: undefined });
           setError(null);
           setIsLoading(false);
           return;
@@ -86,9 +91,12 @@ const ContractDetailPage = () => {
           if (implementationAddress) {
             setImplementationAddress(implementationAddress);
           }
-          const abi = await fetchContractABIFromAnyABI(implementationAddress || contractAddress, parsedNetworkId);
+          const { abi, name } = await fetchContractABIFromAnyABI(
+            implementationAddress || contractAddress,
+            parsedNetworkId,
+          );
           if (!abi) throw new Error("Got empty or undefined ABI from AnyABI");
-          setContractData({ abi, address: contractAddress });
+          setContractData({ abi, address: contractAddress, nameInContractSourceCode: name });
           setError(null);
         } catch (error: any) {
           console.error("Error fetching ABI from AnyABI: ", error);
@@ -96,7 +104,7 @@ const ContractDetailPage = () => {
           try {
             const abiString = await fetchContractABIFromEtherscan(contractAddress, parsedNetworkId);
             const parsedAbi = JSON.parse(abiString);
-            setContractData({ abi: parsedAbi, address: contractAddress });
+            setContractData({ abi: parsedAbi, address: contractAddress, nameInContractSourceCode: undefined });
             setError(null);
           } catch (etherscanError: any) {
             console.error("Error fetching ABI from Etherscan: ", etherscanError);

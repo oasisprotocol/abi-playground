@@ -14,7 +14,7 @@ import { getTargetNetworks } from "~~/utils/scaffold-eth";
 
 type ContractUIProps = {
   className?: string;
-  initialContractData: { address: string; abi: Abi };
+  initialContractData: { address: string; abi: Abi; nameInContractSourceCode: string | undefined };
 };
 
 export interface AugmentedAbiFunction extends AbiFunction {
@@ -135,9 +135,12 @@ export const ContractUI = ({ className = "", initialContractData }: ContractUIPr
     if (contractNameData && typeof contractNameData === "string") {
       return contractNameData;
     }
+    if (initialContractData.nameInContractSourceCode) {
+      return initialContractData.nameInContractSourceCode;
+    }
     // Default to "Contract" for errors or any other cases
     return "Contract";
-  }, [isContractNameLoading, contractNameData]);
+  }, [isContractNameLoading, contractNameData, initialContractData.nameInContractSourceCode]);
 
   return (
     <div className="drawer sm:drawer-open h-full">

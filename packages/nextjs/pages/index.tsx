@@ -57,7 +57,7 @@ const Home: NextPage = () => {
         if (implementationAddress) {
           setImplementationAddress(implementationAddress);
         }
-        const abi = await fetchContractABIFromAnyABI(
+        const { abi } = await fetchContractABIFromAnyABI(
           implementationAddress || verifiedContractAddress,
           parseInt(network),
         );

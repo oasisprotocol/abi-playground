@@ -10,10 +10,10 @@ export const fetchContractABIFromAnyABI = async (verifiedContractAddress: string
   const response = await fetch(url);
   const data = await response.json();
   if (data.abi) {
-    return data.abi;
+    return { abi: data.abi as [], name: data.name as string };
   } else {
     console.error("Could not fetch ABI from AnyABI:", data.error);
-    return;
+    return { abi: undefined, name: undefined };
   }
 };
 
