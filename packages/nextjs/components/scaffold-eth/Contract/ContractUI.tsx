@@ -68,7 +68,6 @@ export const ContractUI = ({ className = "", initialContractData }: ContractUIPr
   const mainNetwork = mainNetworks.find(network => network.id === chainId);
   const networkColor = useNetworkColor(mainNetwork);
   const router = useRouter();
-  const { network } = router.query as { network?: string };
 
   const updateUrlWithSelectedMethods = (selectedMethods: string[]) => {
     const currentQuery = new URLSearchParams(window.location.search);
@@ -77,9 +76,7 @@ export const ContractUI = ({ className = "", initialContractData }: ContractUIPr
     } else {
       currentQuery.delete("methods");
     }
-    const newPath = `/${initialContractData.address}/${network}`;
-
-    router.push({ pathname: newPath, query: currentQuery.toString() }, undefined, { shallow: true });
+    router.push({ query: currentQuery.toString() }, undefined, { shallow: true });
   };
 
   const readMethodsWithInputsAndWriteMethods = useMemo(() => {

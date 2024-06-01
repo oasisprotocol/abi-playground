@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import ContractDetailPage from "./[contractAddress]/[network]";
 import type { NextPage } from "next";
 import { Address, isAddress } from "viem";
 import { usePublicClient } from "wagmi";
@@ -113,7 +114,12 @@ const Home: NextPage = () => {
 
   const handleLoadContract = () => {
     if (isAbiAvailable) {
-      router.push(`/${verifiedContractAddress}/${network}`);
+      router.push({
+        query: {
+          contractAddress: verifiedContractAddress,
+          network: network,
+        },
+      });
     }
   };
 
@@ -125,7 +131,12 @@ const Home: NextPage = () => {
     try {
       const parsedAbi = parseAndCorrectJSON(localContractAbi);
       setContractAbi(parsedAbi);
-      router.push(`/${localAbiContractAddress}/${network}`);
+      router.push({
+        query: {
+          contractAddress: localAbiContractAddress,
+          network: network,
+        },
+      });
       notification.success("ABI successfully loaded.");
     } catch (error) {
       notification.error("Invalid ABI format. Please ensure it is a valid JSON.");
@@ -145,7 +156,12 @@ const Home: NextPage = () => {
       setContractAbi(abi);
       setIsAbiAvailable(true);
       setAbiContractAddress(contractAddress);
-      router.push(`/${contractAddress}/${network}`);
+      router.push({
+        query: {
+          contractAddress: contractAddress,
+          network: network,
+        },
+      });
     } catch (error) {
       console.error("Error fetching ABI from Heimdall: ", error);
       notification.error("Failed to fetch ABI from Heimdall. Please try again or enter ABI manually.");
@@ -202,21 +218,27 @@ const Home: NextPage = () => {
                       <div className="mb-2 text-center text-base">Quick access</div>
                       <div className="flex justify-center w-full rounded-xl">
                         <Link
-                          href="/0x8Bc2B030b299964eEfb5e1e0b36991352E56D2D3/23294"
+                          href={{
+                            query: { contractAddress: "0x8Bc2B030b299964eEfb5e1e0b36991352E56D2D3", network: "23294" },
+                          }}
                           passHref
                           className="link w-1/3 text-center text-base-content no-underline"
                         >
                           Wrapped ROSE
                         </Link>
                         <Link
-                          href="/0xcA11bde05977b3631167028862bE2a173976CA11/23294"
+                          href={{
+                            query: { contractAddress: "0xcA11bde05977b3631167028862bE2a173976CA11", network: "23294" },
+                          }}
                           passHref
                           className="link w-1/3 text-center text-base-content no-underline"
                         >
                           Multicall V3
                         </Link>
                         <Link
-                          href="/0x39d22B78A7651A76Ffbde2aaAB5FD92666Aca520/23294"
+                          href={{
+                            query: { contractAddress: "0x39d22B78A7651A76Ffbde2aaAB5FD92666Aca520", network: "23294" },
+                          }}
                           passHref
                           className="link w-1/3 text-center text-base-content no-underline"
                         >
@@ -285,4 +307,13 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+const QueryRouter = () => {
+  const router = useRouter();
+  return typeof router.query.contractAddress === "string" && typeof router.query.network === "string" ? (
+    <ContractDetailPage contractAddress={router.query.contractAddress} network={router.query.network} />
+  ) : (
+    <Home />
+  );
+};
+
+export default QueryRouter;
