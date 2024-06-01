@@ -3,6 +3,9 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export", // For static github pages deploy
+  images: { unoptimized: true }, // Not supported in export mode
+
   reactStrictMode: true,
   typescript: {
     ignoreBuildErrors: process.env.NEXT_PUBLIC_IGNORE_BUILD_ERROR === "true",
