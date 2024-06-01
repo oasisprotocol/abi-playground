@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { ParsedUrlQuery } from "querystring";
 import { Abi, isAddress } from "viem";
 import * as chains from "viem/chains";
 import { usePublicClient } from "wagmi";
@@ -14,7 +12,7 @@ import { useAbiNinjaState } from "~~/services/store/store";
 import { fetchContractABIFromAnyABI, fetchContractABIFromEtherscan } from "~~/utils/abi";
 import { detectProxyTarget } from "~~/utils/abi-ninja/proxyContracts";
 
-interface ParsedQueryContractDetailsPage extends ParsedUrlQuery {
+interface ParsedQueryContractDetailsPage {
   contractAddress: string;
   network: string;
 }
@@ -25,9 +23,7 @@ type ContractData = {
   nameInContractSourceCode: undefined | string;
 };
 
-const ContractDetailPage = () => {
-  const router = useRouter();
-  const { contractAddress, network } = router.query as ParsedQueryContractDetailsPage;
+const ContractDetailPage = ({ contractAddress, network }: ParsedQueryContractDetailsPage) => {
   const [contractData, setContractData] = useState<ContractData>({
     abi: [],
     address: contractAddress,
