@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import favicon from "~~/public/favicon.ico";
+import oasisSvg from "~~/public/oasis.svg";
 
 type MetaHeaderProps = {
   title?: string;
@@ -10,8 +10,8 @@ type MetaHeaderProps = {
 };
 
 export const MetaHeader = ({
-  title = "ABI Ninja",
-  description = "Interact with any contract on Ethereum",
+  title = "ABI playground",
+  description = "Interact with any verified contract on Oasis EVM ParaTimes",
   twitterCard = "summary_large_image",
   children,
 }: MetaHeaderProps) => {
@@ -32,7 +32,7 @@ export const MetaHeader = ({
         </>
       )}
       {twitterCard && <meta name="twitter:card" content={twitterCard} />}
-      <link rel="icon" type="image/png" sizes="32x32" href={favicon.src} />
+      <link rel="icon" type="image/svg+xml" href={oasisSvg.src} />
       {children}
     </Head>
   );

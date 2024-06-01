@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
-import logo_inv from "~~/public/logo_inv.svg";
+import logo_inv from "~~/public/oasis.svg";
 
 export const MiniHeader = () => {
   return (
@@ -13,10 +13,8 @@ export const MiniHeader = () => {
         </label>
         <Link href="/" passHref className="flex items-center gap-2 sm:ml-4 mr-6 shrink-0">
           <div className="flex items-center">
-            <Image alt="Abi Ninja logo" src={logo_inv} width={50} height={50} />
-            <span className="hidden sm:flex ml-2">
-              <strong>ABI</strong> <span>Ninja</span>
-            </span>
+            <Image alt="Logo" src={logo_inv} width={50} height={50} />
+            <span className="ml-2">ABI playground</span>
           </div>
         </Link>
       </div>

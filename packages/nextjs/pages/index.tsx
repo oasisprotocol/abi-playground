@@ -11,7 +11,7 @@ import { MiniFooter } from "~~/components/MiniFooter";
 import { NetworksDropdown } from "~~/components/NetworksDropdown";
 import { SwitchTheme } from "~~/components/SwitchTheme";
 import { AddressInput } from "~~/components/scaffold-eth";
-import logo_inv from "~~/public/logo_inv.svg";
+import logo_inv from "~~/public/oasis.svg";
 import { useAbiNinjaState } from "~~/services/store/store";
 import { fetchContractABIFromAnyABI, fetchContractABIFromEtherscan, parseAndCorrectJSON } from "~~/utils/abi";
 import { detectProxyTarget } from "~~/utils/abi-ninja/proxyContracts";
@@ -177,8 +177,8 @@ const Home: NextPage = () => {
                 {tabValue === TabName.verifiedContract ? (
                   <div className="my-16 flex flex-col items-center justify-center">
                     <Image src={logo_inv} alt="logo" width={128} height={128} className="mb-4" />
-                    <h2 className="mb-0 text-5xl font-bold">ABI Ninja</h2>
-                    <p>Interact with any contract on Ethereum</p>
+                    <h2 className="mb-0 text-5xl font-bold">ABI playground</h2>
+                    <p>Interact with any verified contract on Oasis EVM ParaTimes</p>
                     <div className="mt-4">
                       <NetworksDropdown onChange={option => setNetwork(option ? option.value.toString() : "")} />
                     </div>

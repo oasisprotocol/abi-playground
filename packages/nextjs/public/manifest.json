@@ -1,5 +1,5 @@
 {
-  "name": "Scaffold-ETH 2 DApp",
-  "description": "A DApp built with Scaffold-ETH",
-  "iconPath": "logo.svg"
+  "name": "ABI playground",
+  "description": "Interact with any verified contract on Oasis EVM ParaTimes",
+  "iconPath": "oasis.svg"
 }
