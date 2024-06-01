@@ -17,6 +17,15 @@ import { fetchContractABIFromAnyABI, fetchContractABIFromEtherscan, parseAndCorr
 import { detectProxyTarget } from "~~/utils/abi-ninja/proxyContracts";
 import { getTargetNetworks, notification } from "~~/utils/scaffold-eth";
 
+if (typeof window !== "undefined") {
+  // Idea from https://github.com/rafgraph/spa-github-pages
+  // See 404 page
+  if (window.location.search.startsWith("?redirect=")) {
+    const redirectTo = window.location.pathname + decodeURIComponent(window.location.search.replace("?redirect=", ""));
+    window.history.replaceState(null, "", redirectTo);
+  }
+}
+
 enum TabName {
   verifiedContract,
   addressAbi,
