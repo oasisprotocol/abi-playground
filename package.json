@@ -13,7 +13,8 @@
     "next:format": "yarn workspace @se-2/nextjs format",
     "next:check-types": "yarn workspace @se-2/nextjs check-types",
     "vercel": "yarn workspace @se-2/nextjs vercel",
-    "vercel:yolo": "yarn workspace @se-2/nextjs vercel:yolo"
+    "vercel:yolo": "yarn workspace @se-2/nextjs vercel:yolo",
+    "postinstall": "yarn workspace @se-2/nextjs next telemetry disable"
   },
   "packageManager": "yarn@3.2.3",
   "devDependencies": {
