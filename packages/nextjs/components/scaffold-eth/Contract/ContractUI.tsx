@@ -4,7 +4,7 @@ import { ContractReadMethods } from "./ContractReadMethods";
 import { ContractVariables } from "./ContractVariables";
 import { ContractWriteMethods } from "./ContractWriteMethods";
 import { AbiFunction } from "abitype";
-import { Abi } from "viem";
+import { Abi, getAbiItem } from "viem";
 import { useContractRead } from "wagmi";
 import { MiniFooter } from "~~/components/MiniFooter";
 import { Address, Balance, MethodSelector } from "~~/components/scaffold-eth";
@@ -128,6 +128,7 @@ export const ContractUI = ({ className = "", initialContractData }: ContractUIPr
     abi: initialContractData.abi,
     chainId: chainId,
     functionName: "name",
+    enabled: !!getAbiItem({ name: "name", abi: initialContractData.abi }),
   });
 
   const displayContractName = useMemo(() => {
