@@ -100,6 +100,7 @@ export const MethodSelector = ({
                   onClick={() => onMethodSelect(method.uid)}
                 >
                   {method.name}
+                  {/* Warning: validateDOMNesting(...): <button> cannot appear as a descendant of <button>. */}
                   {isMethodSelected(method.uid) && (
                     <button
                       className="ml-4 text-xs hover:bg-base-100 rounded-md p-1 pointer-events-auto"
