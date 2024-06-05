@@ -35,16 +35,15 @@ notes
 - [ ] boolean validation is bad
   http://localhost:3000/abi-playground-sapphire?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262&methods=emitEvent1%2CemitEvent2%2CemitUnnamed
 
-  _booleanValue: 2
+  _booleanValue: 2  or  truee
   _integerValue: -121342343333331111111111111111111111111111
   _unsignedIntegerValue: 12311111111111111
   _addr: 0xC3ecf872F643C6238Aa20673798eed6F7dA199e9
   _b32: 0x7465737400000000000000000000000000000000000000000000000000000000 / "test"
   _str: test
   `The contract function "emitEvent1" reverted.`
-
-  _booleanValue: truee
   `invalid argument 0: json: cannot unmarshal invalid hex string into Go struct field TransactionArgs.data of type hexutil.Bytes`
+[ ] it doesn't show an error anymore after workaround to avoid simulating contract write
 
   updated viem validates it https://github.com/wevm/viem/commit/4d52c74d318daf4eebb0dae43f581aa20ef62118
   could make checkbox https://github.com/scaffold-eth/scaffold-eth-2/blob/18dd946e961ac7bdf2a47cea4c5b21872750c223/packages/nextjs/app/debug/_components/contract/ContractInput.tsx#L37
@@ -70,7 +69,7 @@ Connects to
 - [ ] use oasis nexus as ABI source first
 - [ ] could remove etherscan and alchemy?
 
-- [ ] sapphire doesn't work
+- [x] sapphire doesn't work
     sender is zero
     "ERC20: burn from the zero address"
     https://lukaw3d.github.io/abi-playground-sapphire?contractAddress=0x8Bc2B030b299964eEfb5e1e0b36991352E56D2D3&network=23294&methods=deposit%2Cwithdraw%2CbalanceOf

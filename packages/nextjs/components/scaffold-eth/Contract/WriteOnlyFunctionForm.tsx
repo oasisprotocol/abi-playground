@@ -3,7 +3,7 @@ import { InheritanceTooltip } from "./InheritanceTooltip";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
 import { Abi, AbiFunction } from "abitype";
 import { Address, TransactionReceipt } from "viem";
-import { useAccount, useContractWrite, useNetwork, useWaitForTransaction } from "wagmi";
+import { useAccount, useContractWrite, useNetwork, useWaitForTransaction, useWalletClient } from "wagmi";
 import {
   ContractInput,
   IntegerInput,
@@ -41,23 +41,30 @@ export const WriteOnlyFunctionForm = ({
   const { address: connectedAddress } = useAccount();
   const { openConnectModal } = useConnectModal();
   const wrongNetwork = !chain || chain?.id !== mainChainId;
+  const walletClient = useWalletClient({ chainId: mainChainId });
 
   const {
     data: result,
     isLoading,
     writeAsync,
   } = useContractWrite({
-    address: contractAddress,
-    functionName: abiFunction.name,
-    chainId: mainChainId,
-    abi: abi,
-    args: getParsedContractFunctionArgs(form),
+    mode: "prepared", // Workaround to avoid simulating and throwing e.g. "execution reverted: ERC20: burn from the zero address"
+    request: {
+      account: walletClient.data?.account ?? "",
+      address: contractAddress,
+      functionName: abiFunction.name,
+      chainId: mainChainId,
+      chain: { id: mainChainId } as any,
+      abi: abi,
+      args: getParsedContractFunctionArgs(form),
+      value: BigInt(txValue),
+    },
   });
 
   const handleWrite = async () => {
     if (writeAsync) {
       try {
-        const makeWriteWithParams = () => writeAsync({ value: BigInt(txValue) });
+        const makeWriteWithParams = () => writeAsync();
         await writeTxn(makeWriteWithParams);
         onChange();
       } catch (e: any) {
