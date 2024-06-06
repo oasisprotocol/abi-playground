@@ -1,18 +1,18 @@
 notes
 
 - [x] ROSY
-  http://localhost:3000/0x6665a6Cae3F52959f0f653E3D04270D54e6f13d8/23294
+  http://localhost:3000/abi-playground-sapphire?contractAddress=0x6665a6Cae3F52959f0f653E3D04270D54e6f13d8&network=23294
   https://old-explorer.sapphire.oasis.io/address/0x6665a6Cae3F52959f0f653E3D04270D54e6f13d8/read-contract#address-tabs
 
 - [x] TryEmitTypes
   https://explorer.oasis.io/mainnet/emerald/address/0xEF15601B599F5C0696E38AB27f100c4075B36150
-  http://localhost:3000/0xEF15601B599F5C0696E38AB27f100c4075B36150/42262
+  http://localhost:3000/abi-playground-sapphire?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262
 
 - [x] supports nested structs
-  http://localhost:3000/0xEF15601B599F5C0696E38AB27f100c4075B36150/42262?methods=emitEvent2
+  http://localhost:3000/abi-playground-sapphire?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262&methods=emitEvent2
 
 - [ignore] DOM errors
-  http://localhost:3000/0xEF15601B599F5C0696E38AB27f100c4075B36150/42262?methods=emitEvent1%2CemitEvent2%2CemitUnnamed
+  http://localhost:3000/abi-playground-sapphire?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262&methods=emitEvent1%2CemitEvent2%2CemitUnnamed
 
 
 - [x] asks to switch chain in metamask
@@ -33,7 +33,7 @@ notes
 
 
 - [ ] boolean validation is bad
-  http://localhost:3000/0xEF15601B599F5C0696E38AB27f100c4075B36150/42262?methods=emitEvent1%2CemitEvent2%2CemitUnnamed
+  http://localhost:3000/abi-playground-sapphire?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262&methods=emitEvent1%2CemitEvent2%2CemitUnnamed
 
   _booleanValue: 2
   _integerValue: -121342343333331111111111111111111111111111
@@ -73,7 +73,7 @@ Connects to
 - [ ] sapphire doesn't work
     sender is zero
     "ERC20: burn from the zero address"
-    https://lukaw3d.github.io/abi-playground-sapphire/0x8Bc2B030b299964eEfb5e1e0b36991352E56D2D3/23294?methods=deposit%2Cwithdraw%2CbalanceOf
+    https://lukaw3d.github.io/abi-playground-sapphire?contractAddress=0x8Bc2B030b299964eEfb5e1e0b36991352E56D2D3&network=23294&methods=deposit%2Cwithdraw%2CbalanceOf
 
     https://github.com/wevm/wagmi/commit/c2af20b88cf16970d087faaec10b463357a5836e
       supportsSimulation
@@ -83,7 +83,7 @@ Connects to
 
 
 - [x] subpage doesn't work after reload
-  https://lukaw3d.github.io/abi-playground-sapphire/0xcA11bde05977b3631167028862bE2a173976CA11/23294
+  https://lukaw3d.github.io/abi-playground-sapphire?contractAddress=0xcA11bde05977b3631167028862bE2a173976CA11&network=23294
 
 - [x] will nested structs get evm-parsed on explorer?
   yes on PRD https://github.com/oasisprotocol/oasis-wallet-web/wiki/lukaw3d-bookmarklets#switch-to-nexusprd-api
