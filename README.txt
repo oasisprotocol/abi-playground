@@ -48,6 +48,17 @@ notes
   updated viem validates it https://github.com/wevm/viem/commit/4d52c74d318daf4eebb0dae43f581aa20ef62118
   could make checkbox https://github.com/scaffold-eth/scaffold-eth-2/blob/18dd946e961ac7bdf2a47cea4c5b21872750c223/packages/nextjs/app/debug/_components/contract/ContractInput.tsx#L37
 
+- [ ] crashes if you type "0." into deposit, but not into withdrawal
+  https://lukaw3d.github.io/abi-playground-sapphire?contractAddress=0xB759a0fbc1dA517aF257D5Cf039aB4D86dFB3b94&network=23295&methods=balanceOf%2Cwithdraw%2Cdeposit
+
+- [ ] wallet connect sometimes gets stuck:
+  - incognito open https://lukaw3d.github.io/abi-playground-sapphire?contractAddress=0xB759a0fbc1dA517aF257D5Cf039aB4D86dFB3b94&network=23295&methods=balanceOf%2Cwithdraw%2Cdeposit
+  - wallet connect
+  - scan qr code in metamask app and connect
+  - try to deposit
+  - just keeps "Awaiting for user confirmation" without a prompt
+
+- [ ] page started using full cpu after completing withdraw through walletconnect
 
 
 - [ ] displayed icons are blocks, not jazzicons
