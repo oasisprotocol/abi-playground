@@ -79,6 +79,7 @@ Connects to
 
     packages/nextjs/node_modules/@wagmi/core/dist/chunk-TSH6VVF4.js
       if (config2.mode === "prepared") {
+    Fixed in https://github.com/lukaw3d/abi-playground-sapphire/commit/6da59d45ca125152689f43ca5661903d72f25a77
 
 
 - [x] subpage doesn't work after reload
