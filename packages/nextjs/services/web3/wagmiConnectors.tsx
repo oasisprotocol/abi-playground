@@ -30,9 +30,6 @@ const enabledChains = targetNetworks.find(network => network.id === 1)
 export const appChains = configureChains(
   enabledChains,
   [
-    alchemyProvider({
-      apiKey: scaffoldConfig.alchemyApiKey,
-    }),
     publicProvider(),
   ],
   {

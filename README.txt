@@ -64,10 +64,9 @@ Connects to
   walletconnect.com
   anyabi.xyz (gets data from Etherscan, Routescan, Sourcify)
     sometimes slow
-  Etherscan?
-  Alchemy?
+  ~Etherscan~ removed
+  ~Alchemy~ removed
 - [ ] use oasis nexus as ABI source first
-- [ ] could remove etherscan and alchemy?
 
 - [x] sapphire doesn't work
     sender is zero
