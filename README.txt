@@ -57,6 +57,7 @@ notes
   - scan qr code in metamask app and connect
   - try to deposit
   - just keeps "Awaiting for user confirmation" without a prompt
+- [ ] same on mobile chrome: click send, choose metamask, asks what app to open with, choose metamask, get into metamask, confirm allow connecting, get back into chrome, click send again, confirm switching network in metamask, get back into chrome, click send again, just keeps "Awaiting for user confirmation" without a prompt
 
 - [ ] page started using full cpu after completing withdraw through walletconnect
 
