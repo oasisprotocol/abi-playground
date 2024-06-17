@@ -32,7 +32,7 @@ notes
   works
 
 
-- [ ] boolean validation is bad
+- [x] boolean validation is bad
   http://localhost:3000/abi-playground-sapphire?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262&methods=emitEvent1%2CemitEvent2%2CemitUnnamed
 
   _booleanValue: 2  or  truee
@@ -43,10 +43,14 @@ notes
   _str: test
   `The contract function "emitEvent1" reverted.`
   `invalid argument 0: json: cannot unmarshal invalid hex string into Go struct field TransactionArgs.data of type hexutil.Bytes`
-[ ] it doesn't show an error anymore after workaround to avoid simulating contract write
+[ignore] it doesn't show an error anymore after workaround to avoid simulating contract write
 
   updated viem validates it https://github.com/wevm/viem/commit/4d52c74d318daf4eebb0dae43f581aa20ef62118
   could make checkbox https://github.com/scaffold-eth/scaffold-eth-2/blob/18dd946e961ac7bdf2a47cea4c5b21872750c223/packages/nextjs/app/debug/_components/contract/ContractInput.tsx#L37
+
+  upstream:
+    https://abi.ninja/0x0635513f179D50A207757E05759CbD106d7dFcE8/11155111?methods=setController
+    https://abi.ninja/0xfed6a969aaa60e4961fcd3ebf1a2e8913ac65b72/11155111?methods=makeCommitment%2Cregister
 
 - [ ] crashes if you type "0." into deposit, but not into withdrawal
   https://lukaw3d.github.io/abi-playground-sapphire?contractAddress=0xB759a0fbc1dA517aF257D5Cf039aB4D86dFB3b94&network=23295&methods=balanceOf%2Cwithdraw%2Cdeposit
