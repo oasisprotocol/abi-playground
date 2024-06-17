@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "dev": "echo http://localhost:3000/abi-playground-sapphire && next dev",
+    "dev": "echo http://localhost:3000/sapphire-abi-playground && next dev",
     "start": "yarn run dev",
     "build": "next build",
     "serve": "next start",

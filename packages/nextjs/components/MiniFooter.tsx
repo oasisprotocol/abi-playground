@@ -5,12 +5,12 @@ export const MiniFooter = () => {
         <span>
           Source at:
           <a
-            href="https://github.com/lukaw3d/abi-playground-sapphire"
+            href="https://github.com/oasisprotocol/sapphire-abi-playground"
             target="_blank"
             rel="noreferrer"
             className="link"
           >
-            lukaw3d/abi-playground-sapphire
+            oasisprotocol/sapphire-abi-playground
           </a>
         </span>
         &nbsp;·&nbsp;
