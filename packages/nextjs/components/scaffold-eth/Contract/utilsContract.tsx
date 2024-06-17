@@ -170,6 +170,15 @@ const getParsedError = (e: any): string => {
   return message;
 };
 
+const tryConvertingToBigInt = (value: string | bigint, fallback: bigint) => {
+  try {
+    return BigInt(value);
+  } catch (err) {
+    // Ignore error
+    return fallback;
+  }
+};
+
 export {
   getFunctionInputKey,
   getInitialFormState,
@@ -178,4 +187,5 @@ export {
   getInitialTupleArrayFormState,
   transformAbiFunction,
   getParsedError,
+  tryConvertingToBigInt,
 };

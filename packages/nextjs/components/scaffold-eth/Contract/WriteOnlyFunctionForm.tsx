@@ -13,6 +13,7 @@ import {
   getParsedContractFunctionArgs,
   getParsedError,
   transformAbiFunction,
+  tryConvertingToBigInt,
 } from "~~/components/scaffold-eth";
 import { useTransactor } from "~~/hooks/scaffold-eth";
 import { useAbiNinjaState } from "~~/services/store/store";
@@ -57,13 +58,14 @@ export const WriteOnlyFunctionForm = ({
       chain: { id: mainChainId } as any,
       abi: abi,
       args: getParsedContractFunctionArgs(form),
-      value: BigInt(txValue),
+      value: tryConvertingToBigInt(txValue, 0n),
     },
   });
 
   const handleWrite = async () => {
     if (writeAsync) {
       try {
+        BigInt(txValue); // Ensure no ignored errors from tryConvertingToBigInt
         const makeWriteWithParams = () => writeAsync();
         await writeTxn(makeWriteWithParams);
         onChange();

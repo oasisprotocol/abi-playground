@@ -52,8 +52,9 @@ notes
     https://abi.ninja/0x0635513f179D50A207757E05759CbD106d7dFcE8/11155111?methods=setController
     https://abi.ninja/0xfed6a969aaa60e4961fcd3ebf1a2e8913ac65b72/11155111?methods=makeCommitment%2Cregister
 
-- [ ] crashes if you type "0." into deposit, but not into withdrawal
+- [x] crashes if you type "0." into deposit, but not into withdrawal
   https://oasisprotocol.github.io/sapphire-abi-playground?contractAddress=0xB759a0fbc1dA517aF257D5Cf039aB4D86dFB3b94&network=23295&methods=balanceOf%2Cwithdraw%2Cdeposit
+  no issue upstream https://abi.ninja/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2/1?methods=deposit
 
 - [ ] wallet connect sometimes gets stuck:
   - incognito open https://oasisprotocol.github.io/sapphire-abi-playground?contractAddress=0xB759a0fbc1dA517aF257D5Cf039aB4D86dFB3b94&network=23295&methods=balanceOf%2Cwithdraw%2Cdeposit
