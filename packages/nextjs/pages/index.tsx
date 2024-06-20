@@ -309,6 +309,8 @@ const Home: NextPage = () => {
 
 const QueryRouter = () => {
   const router = useRouter();
+  if (!router.isReady) return null;
+
   return typeof router.query.contractAddress === "string" && typeof router.query.network === "string" ? (
     <ContractDetailPage contractAddress={router.query.contractAddress} network={router.query.network} />
   ) : (
