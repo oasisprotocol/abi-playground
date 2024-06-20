@@ -1,18 +1,18 @@
 notes
 
 - [x] ROSY
-  http://localhost:3000/sapphire-abi-playground?contractAddress=0x6665a6Cae3F52959f0f653E3D04270D54e6f13d8&network=23294
+  http://localhost:3000/?contractAddress=0x6665a6Cae3F52959f0f653E3D04270D54e6f13d8&network=23294
   https://old-explorer.sapphire.oasis.io/address/0x6665a6Cae3F52959f0f653E3D04270D54e6f13d8/read-contract#address-tabs
 
 - [x] TryEmitTypes
   https://explorer.oasis.io/mainnet/emerald/address/0xEF15601B599F5C0696E38AB27f100c4075B36150
-  http://localhost:3000/sapphire-abi-playground?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262
+  http://localhost:3000/?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262
 
 - [x] supports nested structs
-  http://localhost:3000/sapphire-abi-playground?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262&methods=emitEvent2
+  http://localhost:3000/?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262&methods=emitEvent2
 
 - [ignore] DOM errors
-  http://localhost:3000/sapphire-abi-playground?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262&methods=emitEvent1%2CemitEvent2%2CemitUnnamed
+  http://localhost:3000/?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262&methods=emitEvent1%2CemitEvent2%2CemitUnnamed
 
 
 - [x] asks to switch chain in metamask
@@ -33,7 +33,7 @@ notes
 
 
 - [x] boolean validation is bad
-  http://localhost:3000/sapphire-abi-playground?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262&methods=emitEvent1%2CemitEvent2%2CemitUnnamed
+  http://localhost:3000/?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262&methods=emitEvent1%2CemitEvent2%2CemitUnnamed
 
   _booleanValue: 2  or  truee
   _integerValue: -121342343333331111111111111111111111111111
@@ -53,11 +53,11 @@ notes
     https://abi.ninja/0xfed6a969aaa60e4961fcd3ebf1a2e8913ac65b72/11155111?methods=makeCommitment%2Cregister
 
 - [x] crashes if you type "0." into deposit, but not into withdrawal
-  https://oasisprotocol.github.io/sapphire-abi-playground?contractAddress=0xB759a0fbc1dA517aF257D5Cf039aB4D86dFB3b94&network=23295&methods=balanceOf%2Cwithdraw%2Cdeposit
+  https://abi-playground.oasis.io/?contractAddress=0xB759a0fbc1dA517aF257D5Cf039aB4D86dFB3b94&network=23295&methods=balanceOf%2Cwithdraw%2Cdeposit
   no issue upstream https://abi.ninja/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2/1?methods=deposit
 
 - [ ] wallet connect sometimes gets stuck:
-  - incognito open https://oasisprotocol.github.io/sapphire-abi-playground?contractAddress=0xB759a0fbc1dA517aF257D5Cf039aB4D86dFB3b94&network=23295&methods=balanceOf%2Cwithdraw%2Cdeposit
+  - incognito open https://abi-playground.oasis.io/?contractAddress=0xB759a0fbc1dA517aF257D5Cf039aB4D86dFB3b94&network=23295&methods=balanceOf%2Cwithdraw%2Cdeposit
   - wallet connect
   - scan qr code in metamask app and connect
   - try to deposit
@@ -88,7 +88,7 @@ Connects to
 - [x] sapphire doesn't work
     sender is zero
     "ERC20: burn from the zero address"
-    https://oasisprotocol.github.io/sapphire-abi-playground?contractAddress=0x8Bc2B030b299964eEfb5e1e0b36991352E56D2D3&network=23294&methods=deposit%2Cwithdraw%2CbalanceOf
+    https://abi-playground.oasis.io/?contractAddress=0x8Bc2B030b299964eEfb5e1e0b36991352E56D2D3&network=23294&methods=deposit%2Cwithdraw%2CbalanceOf
 
     https://github.com/wevm/wagmi/commit/c2af20b88cf16970d087faaec10b463357a5836e
       supportsSimulation
@@ -99,7 +99,7 @@ Connects to
 
 
 - [x] subpage doesn't work after reload
-  https://oasisprotocol.github.io/sapphire-abi-playground?contractAddress=0xcA11bde05977b3631167028862bE2a173976CA11&network=23294
+  https://abi-playground.oasis.io/?contractAddress=0xcA11bde05977b3631167028862bE2a173976CA11&network=23294
 
 - [x] will nested structs get evm-parsed on explorer?
   yes on PRD https://github.com/oasisprotocol/oasis-wallet-web/wiki/lukaw3d-bookmarklets#switch-to-nexusprd-api

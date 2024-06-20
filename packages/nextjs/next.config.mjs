@@ -5,7 +5,7 @@
 const nextConfig = {
   output: "export", // For static github pages deploy
   images: { unoptimized: true }, // Not supported in export mode
-  basePath: "/sapphire-abi-playground",
+  // basePath: "/sapphire-abi-playground",
 
   reactStrictMode: true,
   typescript: {
