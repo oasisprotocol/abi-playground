@@ -3,13 +3,8 @@ export const MiniFooter = () => {
     <div className="text-center text-xs mt-10 mb-1 z-10">
       <div>
         Source at:{" "}
-        <a
-          href="https://github.com/oasisprotocol/sapphire-abi-playground"
-          target="_blank"
-          rel="noreferrer"
-          className="link"
-        >
-          oasisprotocol/sapphire-abi-playground
+        <a href="https://github.com/oasisprotocol/abi-playground" target="_blank" rel="noreferrer" className="link">
+          oasisprotocol/abi-playground
         </a>
       </div>
       <div>
