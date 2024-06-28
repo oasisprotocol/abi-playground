@@ -1,18 +1,18 @@
 notes
 
 - [x] ROSY
-  http://localhost:3000/?contractAddress=0x6665a6Cae3F52959f0f653E3D04270D54e6f13d8&network=23294
+  http://localhost:3030/?contractAddress=0x6665a6Cae3F52959f0f653E3D04270D54e6f13d8&network=23294
   https://old-explorer.sapphire.oasis.io/address/0x6665a6Cae3F52959f0f653E3D04270D54e6f13d8/read-contract#address-tabs
 
 - [x] TryEmitTypes
   https://explorer.oasis.io/mainnet/emerald/address/0xEF15601B599F5C0696E38AB27f100c4075B36150
-  http://localhost:3000/?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262
+  http://localhost:3030/?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262
 
 - [x] supports nested structs
-  http://localhost:3000/?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262&methods=emitEvent2
+  http://localhost:3030/?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262&methods=emitEvent2
 
 - [ignore] DOM errors
-  http://localhost:3000/?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262&methods=emitEvent1%2CemitEvent2%2CemitUnnamed
+  http://localhost:3030/?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262&methods=emitEvent1%2CemitEvent2%2CemitUnnamed
 
 
 - [x] asks to switch chain in metamask
@@ -33,7 +33,7 @@ notes
 
 
 - [x] boolean validation is bad
-  http://localhost:3000/?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262&methods=emitEvent1%2CemitEvent2%2CemitUnnamed
+  http://localhost:3030/?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262&methods=emitEvent1%2CemitEvent2%2CemitUnnamed
 
   _booleanValue: 2  or  truee
   _integerValue: -121342343333331111111111111111111111111111
