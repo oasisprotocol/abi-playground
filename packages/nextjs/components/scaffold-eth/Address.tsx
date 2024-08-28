@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { AccountAvatar } from "../AccountAvatar";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Address as AddressType, isAddress } from "viem";
 import { hardhat } from "viem/chains";
 import { useEnsAvatar, useEnsName } from "wagmi";
 import { CheckCircleIcon, DocumentDuplicateIcon } from "@heroicons/react/24/outline";
-import { BlockieAvatar } from "~~/components/scaffold-eth";
 import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
 import { getBlockExplorerAddressLink } from "~~/utils/scaffold-eth";
 
@@ -81,11 +81,7 @@ export const Address = ({ address, disableAddressLink, format, size = "base" }: 
   return (
     <div className="flex items-center">
       <div className="flex-shrink-0">
-        <BlockieAvatar
-          address={address}
-          ensImage={ensAvatar}
-          size={(blockieSizeMap[size] * 24) / blockieSizeMap["base"]}
-        />
+        <AccountAvatar address={address} size={(blockieSizeMap[size] * 24) / blockieSizeMap["base"]} />
       </div>
       {disableAddressLink ? (
         <span className={`ml-1.5 text-${size} font-normal`}>{displayAddress}</span>

@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { AccountAvatar } from "../../AccountAvatar";
 import { NetworkOptions } from "./NetworkOptions";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { Address, useDisconnect } from "wagmi";
@@ -10,7 +11,6 @@ import {
   DocumentDuplicateIcon,
   QrCodeIcon,
 } from "@heroicons/react/24/outline";
-import { BlockieAvatar } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
 
 type AddressInfoDropdownProps = {
@@ -43,7 +43,7 @@ export const AddressInfoDropdown = ({
       <details ref={dropdownRef} className="dropdown dropdown-end leading-3">
         <summary tabIndex={0} className="btn btn-secondary btn-sm pl-0 pr-2 shadow-md dropdown-toggle gap-0 !h-auto">
           <div className="hidden sm:block">
-            <BlockieAvatar address={address} size={30} ensImage={ensAvatar} />
+            <AccountAvatar address={address} size={30} />
           </div>
           <span className="ml-2 mr-1 ">{displayName}</span>
           <ChevronDownIcon className="h-6 w-4  ml-2 sm:ml-0" />
