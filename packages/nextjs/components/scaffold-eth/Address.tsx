@@ -81,7 +81,11 @@ export const Address = ({ address, disableAddressLink, format, size = "base" }: 
   return (
     <div className="flex items-center">
       <div className="flex-shrink-0">
-        <AccountAvatar address={address} size={(blockieSizeMap[size] * 24) / blockieSizeMap["base"]} />
+        <AccountAvatar
+          address={address}
+          ensImage={ensAvatar}
+          size={(blockieSizeMap[size] * 24) / blockieSizeMap["base"]}
+        />
       </div>
       {disableAddressLink ? (
         <span className={`ml-1.5 text-${size} font-normal`}>{displayAddress}</span>
