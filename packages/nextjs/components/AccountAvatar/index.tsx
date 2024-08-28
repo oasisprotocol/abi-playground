@@ -5,7 +5,7 @@ import { addressToJazzIconSeed } from "./addressToJazzIconSeed";
 type AccountAvatarProps = {
   address: string;
   size: number;
-  ensImage: string | null | undefined;
+  ensImage?: string | null;
 };
 
 export const AccountAvatar: FC<AccountAvatarProps> = ({ address, size }) => {
