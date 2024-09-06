@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import ContractDetailPage from "./[contractAddress]/[network]";
 import type { NextPage } from "next";
 import { Address, isAddress } from "viem";
-import { usePublicClient } from "wagmi";
+import { mainnet, usePublicClient } from "wagmi";
 import { ChevronLeftIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { MetaHeader } from "~~/components/MetaHeader";
 import { MiniFooter } from "~~/components/MiniFooter";
@@ -15,7 +15,7 @@ import { AddressInput } from "~~/components/scaffold-eth";
 import { useAbiNinjaState } from "~~/services/store/store";
 import { fetchContractABIFromAnyABI, fetchContractABIFromEtherscan, parseAndCorrectJSON } from "~~/utils/abi";
 import { detectProxyTarget } from "~~/utils/abi-ninja/proxyContracts";
-import { getTargetNetworks, notification } from "~~/utils/scaffold-eth";
+import { notification } from "~~/utils/scaffold-eth";
 
 enum TabName {
   verifiedContract,
@@ -24,11 +24,9 @@ enum TabName {
 
 const tabValues = Object.values(TabName) as TabName[];
 
-const networks = getTargetNetworks();
-
 const Home: NextPage = () => {
   const [activeTab, setActiveTab] = useState(TabName.verifiedContract);
-  const [network, setNetwork] = useState(networks[0].id.toString());
+  const [network, setNetwork] = useState(mainnet.id.toString());
   const [verifiedContractAddress, setVerifiedContractAddress] = useState<Address>("");
   const [localAbiContractAddress, setLocalAbiContractAddress] = useState("");
   const [localContractAbi, setLocalContractAbi] = useState("");
@@ -96,6 +94,7 @@ const Home: NextPage = () => {
     if (isAddress(verifiedContractAddress)) {
       if (network === "31337") {
         setActiveTab(TabName.addressAbi);
+        setLocalAbiContractAddress(verifiedContractAddress);
         return;
       }
       fetchContractAbi();
@@ -197,7 +196,6 @@ const Home: NextPage = () => {
                     <div className="mt-4">
                       <NetworksDropdown onChange={option => setNetwork(option ? option.value.toString() : "")} />
                     </div>
-
                     <div className="w-10/12 my-8">
                       <AddressInput
                         placeholder="Contract address"
@@ -205,7 +203,6 @@ const Home: NextPage = () => {
                         onChange={setVerifiedContractAddress}
                       />
                     </div>
-
                     <button
                       className="btn btn-primary min-h-fit h-10 px-4 text-base font-semibold border-2 hover:bg-neutral hover:text-primary"
                       onClick={handleLoadContract}
