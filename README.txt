@@ -67,7 +67,7 @@ notes
 - [ ] page started using full cpu after completing withdraw through walletconnect
 
 
-- [ ] displayed icons are blocks, not jazzicons
+- [x] displayed icons are blocks, not jazzicons
 - [ ] rm blockexplorer.html?
 
 - [ ] supports proxy contracts
