@@ -1,4 +1,4 @@
-import { StaticImageData } from 'next/image';
+import { StaticImageData } from "next/image";
 import * as viemNextVersionChains from "../../viemNextVersionChains";
 import * as chains from "viem/chains";
 import arbitrumIcon from "~~/public/arbitrum.svg";
@@ -37,19 +37,19 @@ const SCROLL_ETHERSCAN_API_KEY = process.env.NEXT_PUBLIC_SCROLL_ETHERSCAN_API_KE
 
 export const NETWORKS_EXTRA_DATA: Record<string, ChainAttributes> = {
   [viemNextVersionChains.sapphire.id]: {
-    color: "#fbebd4",
+    color: ["#0500e2", "#00a9ff"],
     icon: oasisIcon,
   },
   [viemNextVersionChains.sapphireTestnet.id]: {
-    color: "#fbebd4",
+    color: ["#0500e2", "#00a9ff"],
     icon: oasisIcon,
   },
   [viemNextVersionChains.emerald.id]: {
-    color: "#fbebd4",
+    color: ["#0500e2", "#00a9ff"],
     icon: oasisIcon,
   },
   [viemNextVersionChains.emeraldTestnet.id]: {
-    color: "#fbebd4",
+    color: ["#0500e2", "#00a9ff"],
     icon: oasisIcon,
   },
   [chains.hardhat.id]: {
