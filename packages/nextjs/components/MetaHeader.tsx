@@ -1,6 +1,5 @@
 import React from "react";
 import Head from "next/head";
-import oasisSvg from "~~/public/oasis.svg";
 
 type MetaHeaderProps = {
   title?: string;
@@ -32,7 +31,7 @@ export const MetaHeader = ({
         </>
       )}
       {twitterCard && <meta name="twitter:card" content={twitterCard} />}
-      <link rel="icon" type="image/svg+xml" href={oasisSvg.src} />
+      <link rel="icon" type="image/png" sizes="32x32" href="/oasis.svg" />
       {children}
     </Head>
   );
