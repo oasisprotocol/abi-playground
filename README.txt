@@ -77,7 +77,7 @@ notes
 - [ ] make encrypted txs
   Harry: just the normal wrapper will work with viem v1 and wagmi v1
 
-- [ ] when using brave wallet + metamask: only displays metamask as supported
+- [x] when using brave wallet + metamask: only displays metamask as supported
 
 
 Connects to
