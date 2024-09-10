@@ -23,6 +23,14 @@ type ContractData = {
   nameInContractSourceCode: undefined | string;
 };
 
+const toCamelCase = (str: string) => {
+  return str
+    .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => {
+      return index === 0 ? word.toLowerCase() : word.toUpperCase();
+    })
+    .replace(/\s+/g, "");
+};
+
 const ContractDetailPage = ({ contractAddress, network }: ParsedQueryContractDetailsPage) => {
   const [contractData, setContractData] = useState<ContractData>({
     abi: [],
@@ -57,10 +65,10 @@ const ContractDetailPage = ({ contractAddress, network }: ParsedQueryContractDet
     if (network) {
       let normalizedNetwork = network.toLowerCase();
       if (normalizedNetwork === "ethereum" || normalizedNetwork === "mainnet") {
-        normalizedNetwork = "homestead"; // chain.network for mainnet in viem/chains
+        normalizedNetwork = "ethereum"; // chain.network for mainnet in viem/chains
       }
 
-      const chain = Object.values(chains).find(chain => chain.network === normalizedNetwork);
+      const chain = Object.values(chains).find(chain => toCamelCase(chain.name) === normalizedNetwork);
 
       let parsedNetworkId = 1;
       if (chain) {

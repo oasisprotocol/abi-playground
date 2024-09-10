@@ -3,15 +3,24 @@ import type { AppProps } from "next/app";
 import { AccountAvatar } from "../components/AccountAvatar";
 import { RainbowKitProvider, darkTheme, lightTheme } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/styles.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import PlausibleProvider from "next-plausible";
 import { ThemeProvider, useTheme } from "next-themes";
 import NextNProgress from "nextjs-progressbar";
 import { Toaster } from "react-hot-toast";
-import { WagmiConfig } from "wagmi";
+import { WagmiProvider } from "wagmi";
 import { useNativeCurrencyPrice } from "~~/hooks/scaffold-eth";
 import { useGlobalState } from "~~/services/store/store";
 import { wagmiConfig } from "~~/services/web3/wagmiConfig";
-import { appChains } from "~~/services/web3/wagmiConnectors";
 import "~~/styles/globals.css";
+
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const ScaffoldEthApp = ({ Component, pageProps }: AppProps) => {
   const price = useNativeCurrencyPrice();
@@ -32,7 +41,6 @@ const ScaffoldEthApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <RainbowKitProvider
-      chains={appChains.chains}
       avatar={AccountAvatar}
       theme={mounted ? (isDarkMode ? darkTheme() : lightTheme()) : lightTheme()}
     >
@@ -68,12 +76,16 @@ const ScaffoldEthApp = ({ Component, pageProps }: AppProps) => {
 
 const ScaffoldEthAppWithProviders = (props: AppProps) => {
   return (
-    <ThemeProvider>
-      <WagmiConfig config={wagmiConfig}>
-        <NextNProgress />
-        <ScaffoldEthApp {...props} />
-      </WagmiConfig>
-    </ThemeProvider>
+    <PlausibleProvider domain="abi.ninja">
+      <ThemeProvider>
+        <WagmiProvider config={wagmiConfig}>
+          <QueryClientProvider client={queryClient}>
+            <NextNProgress />
+            <ScaffoldEthApp {...props} />
+          </QueryClientProvider>
+        </WagmiProvider>
+      </ThemeProvider>
+    </PlausibleProvider>
   );
 };
 

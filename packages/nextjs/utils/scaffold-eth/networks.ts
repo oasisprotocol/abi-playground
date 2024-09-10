@@ -16,6 +16,28 @@ type ChainAttributes = {
 
 export type ChainWithAttributes = chains.Chain & Partial<ChainAttributes>;
 
+// Mapping of chainId to RPC chain name an format followed by alchemy and infura
+export const RPC_CHAIN_NAMES: Record<number, string> = {
+  [chains.mainnet.id]: "eth-mainnet",
+  [chains.goerli.id]: "eth-goerli",
+  [chains.sepolia.id]: "eth-sepolia",
+  [chains.optimism.id]: "opt-mainnet",
+  [chains.optimismGoerli.id]: "opt-goerli",
+  [chains.optimismSepolia.id]: "opt-sepolia",
+  [chains.arbitrum.id]: "arb-mainnet",
+  [chains.arbitrumGoerli.id]: "arb-goerli",
+  [chains.arbitrumSepolia.id]: "arb-sepolia",
+  [chains.polygon.id]: "polygon-mainnet",
+  [chains.polygonMumbai.id]: "polygon-mumbai",
+  [chains.polygonAmoy.id]: "polygon-amoy",
+  [chains.astar.id]: "astar-mainnet",
+  [chains.polygonZkEvm.id]: "polygonzkevm-mainnet",
+  [chains.polygonZkEvmTestnet.id]: "polygonzkevm-testnet",
+  [chains.base.id]: "base-mainnet",
+  [chains.baseGoerli.id]: "base-goerli",
+  [chains.baseSepolia.id]: "base-sepolia",
+};
+
 const MAINNET_ETHERSCAN_API_KEY = process.env.NEXT_PUBLIC_ETHERSCAN_API_KEY || "";
 const OPTIMISM_ETHERSCAN_API_KEY = process.env.NEXT_PUBLIC_OPTIMISM_ETHERSCAN_API_KEY || "";
 const POLYGON_ETHERSCAN_API_KEY = process.env.NEXT_PUBLIC_POLYGON_ETHERSCAN_API_KEY || "";
@@ -143,7 +165,6 @@ export function getBlockExplorerTxLink(chainId: number, txnHash: string) {
   }
 
   const targetChain = targetChainArr[0] as keyof typeof chains;
-  // @ts-expect-error : ignoring error since `blockExplorers` key may or may not be present on some chains
   const blockExplorerTxURL = chains[targetChain]?.blockExplorers?.default?.url;
 
   if (!blockExplorerTxURL) {
