@@ -15,7 +15,7 @@ type Options = {
 };
 
 type GroupedOptions = Record<
-  "mainnet" | "testnet" | "localhost" | "other",
+  "mainnet" | "testnet" | "localhost",
   {
     label: string;
     options: Options[];
@@ -62,16 +62,6 @@ const groupedOptions = networks.reduce<GroupedOptions>(
     mainnet: { label: "mainnet", options: [] },
     testnet: { label: "testnet", options: [] },
     localhost: { label: "localhost", options: [] },
-    other: {
-      label: "other",
-      options: [
-        {
-          value: "other-chains",
-          label: "Other chains",
-          icon: "EyeIcon",
-        },
-      ],
-    },
   },
 );
 
