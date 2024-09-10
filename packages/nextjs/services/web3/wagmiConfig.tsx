@@ -13,3 +13,9 @@ export const wagmiConfig = getDefaultConfig({
     multicall: false,
   },
 });
+
+wagmiConfig.connectors.forEach(c => {
+  // Disable simulation - it always fails in Sapphire.
+  // Upstream comment about being inverted https://github.com/wevm/wagmi/pull/3868/files#r1751172712
+  c.supportsSimulation = true;
+});
