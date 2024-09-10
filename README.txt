@@ -70,9 +70,8 @@ notes
 - [x] displayed icons are blocks, not jazzicons
 - [ ] rm blockexplorer.html?
 
-- [ ] supports proxy contracts
-    says so
-    check it on sapphire
+- [ignore] supports proxy contracts
+    sapphire doesn't support eth_getStorageAt to detect proxy contracts
 
 - [ ] make encrypted txs
   Harry: just the normal wrapper will work with viem v1 and wagmi v1
