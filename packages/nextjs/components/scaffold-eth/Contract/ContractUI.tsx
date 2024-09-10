@@ -125,7 +125,9 @@ export const ContractUI = ({ className = "", initialContractData }: ContractUIPr
     abi: initialContractData.abi,
     chainId: chainId,
     functionName: "name",
-    enabled: !!getAbiItem({ name: "name", abi: initialContractData.abi }),
+    query: {
+      enabled: !!getAbiItem({ name: "name", abi: initialContractData.abi }),
+    },
   });
 
   const displayContractName = useMemo(() => {
