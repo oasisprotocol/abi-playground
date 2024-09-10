@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import type { AppProps } from "next/app";
-import { AccountAvatar } from "../components/AccountAvatar";
 import { RainbowKitProvider, darkTheme, lightTheme } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/styles.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -9,6 +8,7 @@ import { ThemeProvider, useTheme } from "next-themes";
 import NextNProgress from "nextjs-progressbar";
 import { Toaster } from "react-hot-toast";
 import { WagmiProvider } from "wagmi";
+import { BlockieAvatar } from "~~/components/scaffold-eth";
 import { useNativeCurrencyPrice } from "~~/hooks/scaffold-eth";
 import { useGlobalState } from "~~/services/store/store";
 import { wagmiConfig } from "~~/services/web3/wagmiConfig";
@@ -41,7 +41,7 @@ const ScaffoldEthApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <RainbowKitProvider
-      avatar={AccountAvatar}
+      avatar={BlockieAvatar}
       theme={mounted ? (isDarkMode ? darkTheme() : lightTheme()) : lightTheme()}
     >
       <div className="flex min-h-screen flex-col">
