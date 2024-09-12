@@ -72,6 +72,7 @@ notes
 
 - [ignore] supports proxy contracts
     sapphire doesn't support eth_getStorageAt to detect proxy contracts
+    EIP-1167 / ERP-1167 proxy detection works https://abi-playground.oasis.io/?contractAddress=0xbA7F3eE55b7939294caFA0F1e096E79722e1BD88&network=23295
 
 - [ ] make encrypted txs
   Harry: just the normal wrapper will work with viem v1 and wagmi v1
