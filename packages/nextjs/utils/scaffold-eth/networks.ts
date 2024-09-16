@@ -201,7 +201,7 @@ export function getTargetNetworks(): ChainWithAttributes[] {
     ...NETWORKS_EXTRA_DATA[chain.id],
   }));
 
-  return allChains;
+  return [...getPopularTargetNetworks(), ...allChains];
 }
 
 export function getPopularTargetNetworks(): ChainWithAttributes[] {
