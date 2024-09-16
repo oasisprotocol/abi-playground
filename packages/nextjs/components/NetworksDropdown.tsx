@@ -204,7 +204,7 @@ export const NetworksDropdown = ({ onChange }: { onChange: (options: any) => any
     <>
       <Select
         value={selectedOption}
-        defaultValue={groupedOptions["mainnet"].options[0]}
+        defaultValue={defaultOption}
         instanceId="network-select"
         options={Object.values(groupedOptions)}
         onChange={handleSelectChange}

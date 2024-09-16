@@ -1,7 +1,7 @@
 import { Abi, Address } from "viem";
 import create from "zustand";
 import scaffoldConfig from "~~/scaffold.config";
-import { ChainWithAttributes } from "~~/utils/scaffold-eth";
+import { ChainWithAttributes, defaultSelection } from "~~/utils/scaffold-eth";
 
 type GlobalState = {
   nativeCurrencyPrice: number;
@@ -21,15 +21,18 @@ type AbiNinjaState = {
   setImplementationAddress: (newImplementationAddress: Address) => void;
 };
 
+const defaultTargetNetwork = scaffoldConfig.targetNetworks.find(({ id }) => id === defaultSelection);
+if (!defaultTargetNetwork) throw new Error("Can not find defaultSelection");
+
 export const useGlobalState = create<GlobalState>(set => ({
   nativeCurrencyPrice: 0,
   setNativeCurrencyPrice: (newValue: number): void => set(() => ({ nativeCurrencyPrice: newValue })),
-  targetNetwork: scaffoldConfig.targetNetworks[0],
+  targetNetwork: defaultTargetNetwork,
   setTargetNetwork: (newTargetNetwork: ChainWithAttributes) => set(() => ({ targetNetwork: newTargetNetwork })),
 }));
 
 export const useAbiNinjaState = create<AbiNinjaState>(set => ({
-  mainChainId: scaffoldConfig.targetNetworks[0].id,
+  mainChainId: defaultSelection,
   setMainChainId: (newValue: number): void => set(() => ({ mainChainId: newValue })),
   contractAbi: [],
   setContractAbi: (newAbi: Abi): void => set({ contractAbi: newAbi }),
