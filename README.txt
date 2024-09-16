@@ -79,6 +79,10 @@ notes
 
 - [x] when using brave wallet + metamask: only displays metamask as supported
 
+- [ ] rounding issue, maybe fixed if we upgrade to newer abi.ninja
+  https://abi-playground.oasis.io/?contractAddress=0x5C78A65AD6D0eC6618788b6E8e211F31729111Ca&network=42262&methods=withdraw
+  enter "12345" and convert to wei returns "12344999999999999737856"
+  enter "12345000000000000000000" and send, still encodes "12344999999999999737856"
 
 Connects to
   walletconnect.com
