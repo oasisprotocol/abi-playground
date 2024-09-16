@@ -46,6 +46,8 @@ const ZKSYNC_ETHERSCAN_API_KEY = process.env.NEXT_PUBLIC_ZKSYNC_ETHERSCAN_API_KE
 const BASE_ETHERSCAN_API_KEY = process.env.NEXT_PUBLIC_BASE_ETHERSCAN_API_KEY || "";
 const SCROLL_ETHERSCAN_API_KEY = process.env.NEXT_PUBLIC_SCROLL_ETHERSCAN_API_KEY || "";
 
+export const defaultSelection = viemNextVersionChains.sapphire.id;
+
 export const NETWORKS_EXTRA_DATA: Record<string, ChainAttributes> = {
   [viemNextVersionChains.sapphire.id]: {
     color: ["#0500e2", "#00a9ff"],

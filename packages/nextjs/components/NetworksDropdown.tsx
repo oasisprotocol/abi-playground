@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 import Select, { MultiValue, OptionProps, SingleValue, components } from "react-select";
 import { Chain } from "viem";
 import { EyeIcon, WrenchScrewdriverIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { getPopularTargetNetworks } from "~~/utils/scaffold-eth";
+import { defaultSelection, getPopularTargetNetworks } from "~~/utils/scaffold-eth";
 
 type Options = {
   value: number | string;
@@ -116,7 +116,9 @@ const IconOption = (props: OptionProps<Options>) => (
 export const NetworksDropdown = ({ onChange }: { onChange: (options: any) => any }) => {
   const [isMobile, setIsMobile] = useState(false);
   const { resolvedTheme } = useTheme();
-  const [selectedOption, setSelectedOption] = useState<SingleValue<Options>>(groupedOptions.mainnet.options[0]);
+  const defaultOption = groupedOptions.mainnet.options.find(({ value }) => value === defaultSelection);
+  if (!defaultOption) throw new Error("Can not find defaultSelection");
+  const [selectedOption, setSelectedOption] = useState<SingleValue<Options>>(defaultOption);
   const [searchTerm, setSearchTerm] = useState("");
 
   const searchInputRef = useRef<HTMLInputElement>(null);

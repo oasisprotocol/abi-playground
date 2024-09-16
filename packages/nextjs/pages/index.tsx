@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import ContractDetailPage from "./[contractAddress]/[network]";
 import type { NextPage } from "next";
 import { Address, isAddress } from "viem";
-import { mainnet } from "viem/chains";
 import { usePublicClient } from "wagmi";
 import { ChevronLeftIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { MetaHeader } from "~~/components/MetaHeader";
@@ -16,7 +15,7 @@ import { AddressInput } from "~~/components/scaffold-eth";
 import { useAbiNinjaState } from "~~/services/store/store";
 import { fetchContractABIFromAnyABI, fetchContractABIFromEtherscan, parseAndCorrectJSON } from "~~/utils/abi";
 import { detectProxyTarget } from "~~/utils/abi-ninja/proxyContracts";
-import { notification } from "~~/utils/scaffold-eth";
+import { defaultSelection, notification } from "~~/utils/scaffold-eth";
 
 enum TabName {
   verifiedContract,
@@ -27,7 +26,7 @@ const tabValues = Object.values(TabName) as TabName[];
 
 const Home: NextPage = () => {
   const [activeTab, setActiveTab] = useState(TabName.verifiedContract);
-  const [network, setNetwork] = useState(mainnet.id.toString());
+  const [network, setNetwork] = useState(defaultSelection.toString());
   const [verifiedContractAddress, setVerifiedContractAddress] = useState<Address>("");
   const [localAbiContractAddress, setLocalAbiContractAddress] = useState("");
   const [localContractAbi, setLocalContractAbi] = useState("");
