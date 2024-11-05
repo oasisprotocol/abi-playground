@@ -65,6 +65,25 @@ export const sapphireTestnet = /*#__PURE__*/ defineChain({
   testnet: true,
 });
 
+export const sapphireLocalnet = /*#__PURE__*/ defineChain({
+  id: 23293,
+  name: "Oasis Sapphire Localnet",
+  network: "sapphire-localnet",
+  nativeCurrency: { name: "Sapphire Local Rose", symbol: "TEST", decimals: 18 },
+  rpcUrls: {
+    default: {
+      http: ["http://localhost:8545"],
+    },
+  },
+  blockExplorers: {
+    default: {
+      name: "Oasis Explorer",
+      url: "http://localhost:3000/testnet/sapphire",
+    },
+  },
+  testnet: true,
+});
+
 export const emerald = /*#__PURE__*/ defineChain({
   id: 42262,
   name: "Oasis Emerald",

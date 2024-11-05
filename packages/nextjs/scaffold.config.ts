@@ -16,6 +16,7 @@ const scaffoldConfig = {
     viemNextVersionChains.sapphireTestnet,
     viemNextVersionChains.emerald,
     viemNextVersionChains.emeraldTestnet,
+    viemNextVersionChains.sapphireLocalnet,
   ],
 
   // The interval at which your front-end polls the RPC servers for new data

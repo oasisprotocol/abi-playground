@@ -57,6 +57,10 @@ export const NETWORKS_EXTRA_DATA: Record<string, ChainAttributes> = {
     color: ["#0500e2", "#00a9ff"],
     icon: "/oasis.svg",
   },
+  [viemNextVersionChains.sapphireLocalnet.id]: {
+    color: ["#0500e2", "#00a9ff"],
+    icon: "/oasis.svg",
+  },
   [viemNextVersionChains.emerald.id]: {
     color: ["#0500e2", "#00a9ff"],
     icon: "/oasis.svg",
