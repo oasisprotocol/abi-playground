@@ -111,11 +111,13 @@ export const chainToOption = (chain: Chain): Options => ({
 const STORED_CHAINS_STORAGE_KEY = "storedChains";
 
 export const getStoredChainsFromLocalStorage = (): Chain[] => {
-  return []; // Prevent error in https://github.com/oasisprotocol/abi-playground/blob/faa6ca4e86a2248672b3e4155ad8b4aa52da4fa9/packages/nextjs/services/store/store.ts#L47 on load
+  /*
+  Prevent error in https://github.com/oasisprotocol/abi-playground/blob/faa6ca4e86a2248672b3e4155ad8b4aa52da4fa9/packages/nextjs/services/store/store.ts#L47 on load
   if (typeof window !== "undefined") {
     const storedChains = localStorage.getItem(STORED_CHAINS_STORAGE_KEY);
     return storedChains ? JSON.parse(storedChains) : [];
   }
+  */
   return [];
 };
 
