@@ -298,6 +298,28 @@ const ContractDetailPage = ({ contractAddress, network }: ParsedQueryContractDet
             </div>
           )}
         </div>
+        <button
+          className="btn fixed bottom-3 right-24 z-50 mr-24"
+          onClick={async () => {
+            // Copied from fetchContractAbi
+            setIsLoading(true);
+            try {
+              const implementationAddress = window.prompt("Proxy target address", "0x") as `0x${string}` | null;
+              if (!implementationAddress) return;
+              setImplementationAddress(implementationAddress);
+              const { abi, name } = await fetchContractABIFromAnyABI(implementationAddress, chainId);
+              if (!abi) throw new Error("Got empty or undefined ABI from AnyABI");
+              setContractData({ abi, address: contractAddress, nameInContractSourceCode: name });
+              setError(null);
+            } catch (error: any) {
+              console.error("Error fetching ABI from AnyABI: ", error);
+            } finally {
+              setIsLoading(false);
+            }
+          }}
+        >
+          Manually set proxy target
+        </button>
       </div>
       <SwitchTheme className="fixed bottom-3 right-6 z-50" />
     </>
