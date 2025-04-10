@@ -1,18 +1,32 @@
+import * as viemNextVersionChains from "../viemNextVersionChains";
 import { NETWORKS_EXTRA_DATA, getTargetNetworks } from "./scaffold-eth";
 
 export const fetchContractABIFromAnyABI = async (verifiedContractAddress: string, chainId: number) => {
-  const chain = getTargetNetworks().find(network => network.id === chainId);
+  const paratimeApi = {
+    [viemNextVersionChains.sapphire.id]: `https://nexus.oasis.io/v1/sapphire/accounts/${verifiedContractAddress}`,
+    [viemNextVersionChains.sapphireTestnet
+      .id]: `https://testnet.nexus.oasis.io/v1/sapphire/accounts/${verifiedContractAddress}`,
+    [viemNextVersionChains.emerald.id]: `https://nexus.oasis.io/v1/emerald/accounts/${verifiedContractAddress}`,
+    [viemNextVersionChains.emeraldTestnet
+      .id]: `https://testnet.nexus.oasis.io/v1/sapphire/accounts/${verifiedContractAddress}`,
+    [viemNextVersionChains.sapphireLocalnet
+      .id]: `http://localhost:8547/v1/sapphire/accounts/${verifiedContractAddress}`,
+  };
 
-  if (!chain) throw new Error(`ChainId ${chainId} not found in supported networks`);
+  if (!paratimeApi[chainId as keyof typeof paratimeApi])
+    throw new Error(`ChainId ${chainId} not found in supported networks`);
 
-  const url = `https://anyabi.xyz/api/get-abi/${chainId}/${verifiedContractAddress}`;
+  const url = paratimeApi[chainId as keyof typeof paratimeApi];
 
   const response = await fetch(url);
   const data = await response.json();
-  if (data.abi) {
-    return { abi: data.abi as [], name: data.name as string };
+  if (data.evm_contract?.verification?.compilation_metadata?.output?.abi) {
+    return {
+      abi: data.evm_contract?.verification?.compilation_metadata?.output?.abi,
+      name: Object.values(data.evm_contract?.verification?.compilation_metadata?.settings?.compilationTarget)[0],
+    };
   } else {
-    console.error("Could not fetch ABI from AnyABI:", data.error);
+    console.error("Could not fetch ABI from Nexus:", data.error);
     return { abi: undefined, name: undefined };
   }
 };

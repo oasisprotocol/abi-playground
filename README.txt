@@ -87,11 +87,11 @@ notes
 
 Connects to
   walletconnect.com
-  anyabi.xyz (gets data from Etherscan, Routescan, Sourcify)
+  ~anyabi.xyz (gets data from Etherscan, Routescan, Sourcify)~ removed
     sometimes slow
   ~Etherscan~ removed
   ~Alchemy~ removed
-- [ ] use oasis nexus as ABI source first
+- [x] use oasis nexus as ABI source first
 
 - [x] sapphire doesn't work
     sender is zero
