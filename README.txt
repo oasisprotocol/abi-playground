@@ -73,6 +73,11 @@ notes
 - [x] supports proxy contracts
     sapphire doesn't support eth_getStorageAt to detect proxy contracts
     EIP-1167 / ERP-1167 proxy detection works https://abi-playground.oasis.io/?contractAddress=0xbA7F3eE55b7939294caFA0F1e096E79722e1BD88&network=23295
+    ERC-897 proxy detection works `implementation()` (5c60da1b)
+      https://abi-playground.oasis.io/?network=23294&contractAddress=0xe198CBb727758b9Ad38a12E1ad475a843e5e730F
+      https://abi-playground.oasis.io/?network=23294&contractAddress=0x97eec1c29f745dC7c267F90292AA663d997a601D
+    Gnosis Safe proxy `masterCopy()` (a619486e)
+      https://abi-playground.oasis.io/?network=23294&contractAddress=0x7690166442e81B473D6eb413e865AA6379490371
     Added "Manually set proxy target" button
 
 - [ ] make encrypted txs
