@@ -15,7 +15,16 @@ export function useTargetNetwork(): { targetNetwork: ChainWithAttributes } {
   const mainChainId = useAbiNinjaState(state => state.mainChainId);
 
   useEffect(() => {
-    const newSelectedNetwork = chains.find(network => network.id === chain?.id || network.id === mainChainId);
+    /*
+    https://abi-playground.oasis.io/?contractAddress=0xEF15601B599F5C0696E38AB27f100c4075B36150&network=42262&methods=emitEvent1%2CemitEvent2%2CemitUnnamed
+    links to current network in metamask instead of contract's network
+    if metamask is on sapphire: links to sapphire instead of emerald
+    but links correctly if on emerald testnet
+
+    fixed upstream https://github.com/BuidlGuidl/abi.ninja/pull/164
+    */
+    const newSelectedNetwork =
+      chains.find(network => network.id === mainChainId) || chains.find(network => network.id === chain?.id);
     if (newSelectedNetwork && newSelectedNetwork.id !== targetNetwork.id) {
       setTargetNetwork(newSelectedNetwork);
     }
