@@ -27,8 +27,14 @@ const readAddress = (value: string | undefined): Address => {
 
 const EIP_1167_BYTECODE_PREFIX = "0x363d3d373d3d3d363d";
 const EIP_1167_BYTECODE_SUFFIX = "57fd5bf3";
+// 0age's minimal proxy - https://medium.com/coinmonks/the-more-minimal-proxy-5756ae08ee48
+// used by thirdweb
+const EIP_1167_0AGE_REGEX = /^0x3d3d3d3d363d3d37363d73([0-9a-fA-F]{40})5af43d3d93803e602a57fd5bf3$/
 
 export const parse1167Bytecode = (bytecode: unknown): Address => {
+  if (typeof bytecode === "string" && bytecode.match(EIP_1167_0AGE_REGEX)) {
+    return `0x${bytecode.match(EIP_1167_0AGE_REGEX)[1]!}` as Address;
+  }
   if (typeof bytecode !== "string" || !bytecode.startsWith(EIP_1167_BYTECODE_PREFIX)) {
     throw new Error("Not an EIP-1167 bytecode");
   }
