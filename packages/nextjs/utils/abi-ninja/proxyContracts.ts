@@ -33,7 +33,7 @@ const EIP_1167_0AGE_REGEX = /^0x3d3d3d3d363d3d37363d73([0-9a-fA-F]{40})5af43d3d9
 
 export const parse1167Bytecode = (bytecode: unknown): Address => {
   if (typeof bytecode === "string" && bytecode.match(EIP_1167_0AGE_REGEX)) {
-    return `0x${bytecode.match(EIP_1167_0AGE_REGEX)[1]!}` as Address;
+    return `0x${bytecode.match(EIP_1167_0AGE_REGEX)?.[1]!}` as Address;
   }
   if (typeof bytecode !== "string" || !bytecode.startsWith(EIP_1167_BYTECODE_PREFIX)) {
     throw new Error("Not an EIP-1167 bytecode");
