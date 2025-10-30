@@ -71,7 +71,8 @@ notes
 - [ ] rm blockexplorer.html?
 
 - [x] supports proxy contracts
-    sapphire doesn't support eth_getStorageAt to detect proxy contracts
+    ~sapphire doesn't support eth_getStorageAt to detect proxy contracts~ https://github.com/oasisprotocol/oasis-sdk/pull/2215
+    EIP-1967 proxy detection using eth_getStorageAt works https://abi-playground.oasis.io/?network=23294&contractAddress=0x8efd012977DD5C97E959b9e48c04eE5fcd604374
     EIP-1167 / ERP-1167 proxy detection works https://abi-playground.oasis.io/?contractAddress=0xbA7F3eE55b7939294caFA0F1e096E79722e1BD88&network=23295
     ERC-897 proxy detection works `implementation()` (5c60da1b)
       https://abi-playground.oasis.io/?network=23294&contractAddress=0xe198CBb727758b9Ad38a12E1ad475a843e5e730F
